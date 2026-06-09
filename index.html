@@ -1,192 +1,246 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALK LABS</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>ALK LABS</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        :root {
-            --bg: #fafafa;
-            --card: #ffffff;
-            --text: #111111;
-            --secondary: #666666;
-            --border: #e8e8e8;
-            --accent: #007aff;
-        }
+<style>
+:root{
+    --bg:#060816;
+    --bg2:#0d1228;
+    --card:rgba(255,255,255,.06);
+    --border:rgba(255,255,255,.08);
+    --text:#ffffff;
+    --muted:#aab1c5;
+    --accent:#6ea8fe;
+}
 
-        body {
-            font-family: "Inter", sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.7;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        .container {
-            width: min(1100px, 92%);
-            margin: auto;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        header {
-            padding: 90px 0 70px;
-            text-align: center;
-        }
+body{
+    font-family:'Inter',sans-serif;
+    color:var(--text);
+    background:
+        radial-gradient(circle at top left, rgba(0,122,255,.25), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(139,92,246,.25), transparent 30%),
+        linear-gradient(180deg,var(--bg),var(--bg2));
+    min-height:100vh;
+}
 
-        header h1 {
-            font-size: clamp(3rem, 8vw, 5rem);
-            font-weight: 700;
-            letter-spacing: -2px;
-        }
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
 
-        header p {
-            max-width: 700px;
-            margin: 20px auto 0;
-            color: var(--secondary);
-            font-size: 1.15rem;
-        }
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
 
-        section {
-            padding: 50px 0;
-        }
+.hero h1{
+    font-size:clamp(4rem,10vw,7rem);
+    font-weight:800;
+    letter-spacing:-4px;
+}
 
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            font-weight: 700;
-        }
+.gradient-text{
+    background:linear-gradient(90deg,#4facfe,#8b5cf6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-        .about {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 40px;
-        }
+.hero p{
+    max-width:720px;
+    margin:24px auto;
+    color:var(--muted);
+    font-size:1.2rem;
+    line-height:1.8;
+}
 
-        .about p {
-            color: var(--secondary);
-            font-size: 1.05rem;
-        }
+.hero-badge{
+    display:inline-block;
+    padding:10px 16px;
+    border:1px solid var(--border);
+    border-radius:999px;
+    background:rgba(255,255,255,.05);
+    margin-bottom:24px;
+    color:var(--muted);
+}
 
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 24px;
-        }
+section{
+    padding:100px 0;
+}
 
-        .app-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            overflow: hidden;
-            transition: all 0.25s ease;
-        }
+.section-title{
+    text-align:center;
+    font-size:2.5rem;
+    margin-bottom:16px;
+}
 
-        .app-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-        }
+.section-subtitle{
+    text-align:center;
+    color:var(--muted);
+    max-width:700px;
+    margin:auto;
+    margin-bottom:50px;
+}
 
-        .app-image {
-            height: 220px;
-            background: linear-gradient(135deg, #ececec, #d9d9d9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
+.apps-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:28px;
+}
 
-        .app-content {
-            padding: 24px;
-        }
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    backdrop-filter:blur(20px);
+    border-radius:28px;
+    overflow:hidden;
+    transition:all .3s ease;
+}
 
-        .app-content h3 {
-            margin-bottom: 12px;
-            font-size: 1.4rem;
-        }
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 25px 60px rgba(0,0,0,.35);
+}
 
-        .app-content p {
-            color: var(--secondary);
-            margin-bottom: 20px;
-        }
+.card-image{
+    height:220px;
+    background:
+        linear-gradient(135deg,#1e293b,#111827);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:2rem;
+    font-weight:700;
+}
 
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            background: var(--accent);
-            color: white;
-            padding: 12px 18px;
-            border-radius: 12px;
-            font-weight: 600;
-        }
+.card-content{
+    padding:28px;
+}
 
-        footer {
-            text-align: center;
-            padding: 60px 0;
-            color: var(--secondary);
-        }
+.card h3{
+    margin-bottom:14px;
+    font-size:1.4rem;
+}
 
-        @media (max-width: 768px) {
-            .about {
-                padding: 25px;
-            }
-        }
-    </style>
+.card p{
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:22px;
+}
+
+.btn{
+    display:inline-block;
+    text-decoration:none;
+    padding:12px 18px;
+    border-radius:12px;
+    font-weight:600;
+    color:white;
+    background:linear-gradient(90deg,#007aff,#7c4dff);
+}
+
+.about{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:28px;
+    padding:45px;
+}
+
+.about p{
+    color:var(--muted);
+    line-height:1.9;
+}
+
+footer{
+    padding:60px 20px;
+    text-align:center;
+    color:var(--muted);
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:4rem;
+        letter-spacing:-2px;
+    }
+
+    .hero p{
+        font-size:1rem;
+    }
+
+    .about{
+        padding:30px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-<header class="container">
-    <h1>ALK Lab</h1>
-    <p>
-        Building simple, engaging and thoughtfully crafted mobile games and puzzle experiences.
-    </p>
-</header>
+<div class="container">
 
-<main class="container">
+    <section class="hero">
+        <div>
+            <div class="hero-badge">
+                Independent Mobile App Studio
+            </div>
 
-    <section>
-        <h2 class="section-title">About</h2>
+            <h1>
+                ALK <span class="gradient-text">LABS</span>
+            </h1>
 
-        <div class="about">
             <p>
-                ALK Lab is an independent app studio focused on creating fun,
-                lightweight and accessible mobile experiences. From retro-inspired
-                arcade games to brain-teasing puzzle challenges, every app is designed
-                with simplicity, polish and enjoyment in mind.
-                <br><br>
-                Our goal is to build games that are easy to pick up, rewarding to play,
-                and enjoyable for players of all ages.
+                Crafting engaging puzzle experiences and nostalgic retro games.
+                We build simple, polished and enjoyable mobile experiences designed
+                to entertain players of all ages.
             </p>
         </div>
     </section>
 
-    <section>
-        <h2 class="section-title">Apps</h2>
+    <section id="apps">
+
+        <h2 class="section-title">Our Apps</h2>
+
+        <p class="section-subtitle">
+            Discover our collection of mobile games, from clever puzzle challenges
+            to classic retro-inspired arcade experiences.
+        </p>
 
         <div class="apps-grid">
 
-            <div class="app-card">
-                <div class="app-image">
-                    SumThing
-                </div>
+            <div class="card">
+                <div class="card-image">🧩</div>
 
-                <div class="app-content">
+                <div class="card-content">
                     <h3>SumThing: Clever Sum Puzzle</h3>
 
                     <p>
-                        A clever number puzzle that challenges your logic and arithmetic skills.
-                        Discover satisfying solutions, sharpen your mind, and enjoy a fresh take
-                        on classic math puzzles.
+                        A smart and satisfying number puzzle game that challenges
+                        logic, arithmetic and creative problem-solving.
                     </p>
 
                     <a class="btn"
@@ -197,17 +251,15 @@
                 </div>
             </div>
 
-            <div class="app-card">
-                <div class="app-image">
-                    Retro Pixel Car
-                </div>
+            <div class="card">
+                <div class="card-image">🏎️</div>
 
-                <div class="app-content">
+                <div class="card-content">
                     <h3>Retro Pixel Car Race</h3>
 
                     <p>
-                        A nostalgic pixel-art racing experience inspired by classic arcade games.
-                        Dodge traffic, chase high scores and relive the charm of retro gaming.
+                        A nostalgic pixel-art racing game inspired by classic
+                        arcade experiences. Dodge traffic and chase high scores.
                     </p>
 
                     <a class="btn"
@@ -218,17 +270,15 @@
                 </div>
             </div>
 
-            <div class="app-card">
-                <div class="app-image">
-                    Retro Pixel Snake
-                </div>
+            <div class="card">
+                <div class="card-image">🐍</div>
 
-                <div class="app-content">
+                <div class="card-content">
                     <h3>Retro Pixel Snake</h3>
 
                     <p>
-                        A modern tribute to the timeless snake game. Navigate carefully,
-                        grow longer, beat your best score and enjoy classic pixel gameplay.
+                        A modern take on the timeless snake game with retro visuals,
+                        smooth gameplay and endless score-chasing fun.
                     </p>
 
                     <a class="btn"
@@ -240,13 +290,36 @@
             </div>
 
         </div>
+
     </section>
 
-</main>
+    <section>
+
+        <h2 class="section-title">About ALK LABS</h2>
+
+        <div class="about">
+
+            <p>
+                ALK LABS is an independent mobile app studio focused on creating
+                high-quality puzzle and arcade experiences. We believe great games
+                don't need to be complicated—they should be intuitive, engaging,
+                and enjoyable from the very first tap.
+                <br><br>
+                Our mission is to blend thoughtful design, retro inspiration,
+                and modern mobile experiences into games that players can enjoy
+                anytime, anywhere.
+            </p>
+
+        </div>
+
+    </section>
+
+</div>
 
 <footer>
-    © 2026 ALK Lab • Crafted with passion for mobile gaming.
+    © 2026 ALK LABS · All Rights Reserved
 </footer>
 
 </body>
 </html>
+```
