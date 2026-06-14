@@ -1,199 +1,304 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ALK LABS</title>
+<title>ALK LABS | Independent App & Game Developer</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
-    --bg:#060816;
-    --bg2:#0d1228;
-    --card:rgba(255,255,255,.06);
-    --border:rgba(255,255,255,.08);
-    --text:#ffffff;
-    --muted:#aab1c5;
-    --accent:#6ea8fe;
+:root {
+    --bg: #030712;
+    --bg-surface: #0b0f19;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --card-hover: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.08);
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --accent: #3b82f6;
+    --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    font-family:'Inter',sans-serif;
-    color:var(--text);
-    background:
-        radial-gradient(circle at top left, rgba(0,122,255,.25), transparent 30%),
-        radial-gradient(circle at bottom right, rgba(139,92,246,.25), transparent 30%),
-        linear-gradient(180deg,var(--bg),var(--bg2));
-    min-height:100vh;
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+    background-color: var(--bg);
+    background-image: 
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.15), transparent 40%),
+        radial-gradient(circle at 80% 40%, rgba(139, 92, 246, 0.12), transparent 40%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    line-height: 1.6;
 }
 
-.container{
-    width:min(1180px,92%);
-    margin:auto;
+.container {
+    width: min(1200px, 90%);
+    margin: auto;
 }
 
-.hero{
-    min-height:90vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+header {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(3, 7, 18, 0.7);
 }
 
-.hero h1{
-    font-size:clamp(4rem,10vw,7rem);
-    font-weight:800;
-    letter-spacing:-4px;
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.gradient-text{
-    background:linear-gradient(90deg,#4facfe,#8b5cf6);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    text-decoration: none;
+    color: var(--text-primary);
 }
 
-.hero p{
-    max-width:720px;
-    margin:24px auto;
-    color:var(--muted);
-    font-size:1.2rem;
-    line-height:1.8;
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s;
+    margin-left: 24px;
 }
 
-.hero-badge{
-    display:inline-block;
-    padding:10px 16px;
-    border:1px solid var(--border);
-    border-radius:999px;
-    background:rgba(255,255,255,.05);
-    margin-bottom:24px;
-    color:var(--muted);
+.nav-links a:hover {
+    color: var(--text-primary);
 }
 
-section{
-    padding:100px 0;
+.hero {
+    padding: 120px 0 80px 0;
+    text-align: center;
 }
 
-.section-title{
-    text-align:center;
-    font-size:2.5rem;
-    margin-bottom:16px;
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    margin-bottom: 24px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
-.section-subtitle{
-    text-align:center;
-    color:var(--muted);
-    max-width:700px;
-    margin:auto;
-    margin-bottom:50px;
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    font-weight: 800;
+    letter-spacing: -3px;
+    line-height: 1.1;
+    margin-bottom: 24px;
 }
 
-.apps-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:28px;
+.gradient-text {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.card{
-    background:var(--card);
-    border:1px solid var(--border);
-    backdrop-filter:blur(20px);
-    border-radius:28px;
-    overflow:hidden;
-    transition:all .3s ease;
+.hero p {
+    max-width: 680px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    line-height: 1.8;
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 25px 60px rgba(0,0,0,.35);
+section {
+    padding: 80px 0;
 }
 
-.card-image{
-    height:220px;
-    background:
-        linear-gradient(135deg,#1e293b,#111827);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:2rem;
-    font-weight:700;
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+    text-align: center;
 }
 
-.card-content{
-    padding:28px;
+.section-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 56px auto;
+    font-size: 1.05rem;
 }
 
-.card h3{
-    margin-bottom:14px;
-    font-size:1.4rem;
+.apps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 32px;
 }
 
-.card p{
-    color:var(--muted);
-    line-height:1.7;
-    margin-bottom:22px;
+.card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+    border-radius: 24px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn{
-    display:inline-block;
-    text-decoration:none;
-    padding:12px 18px;
-    border-radius:12px;
-    font-weight:600;
-    color:white;
-    background:linear-gradient(90deg,#007aff,#7c4dff);
+.card:hover {
+    transform: translateY(-6px);
+    background: var(--card-hover);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-.about{
-    max-width:850px;
-    margin:auto;
-    text-align:center;
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:28px;
-    padding:45px;
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
-.about p{
-    color:var(--muted);
-    line-height:1.9;
+.app-icon-wrapper {
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    background: #1f2937;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
 }
 
-footer{
-    padding:60px 20px;
-    text-align:center;
-    color:var(--muted);
-    border-top:1px solid rgba(255,255,255,.06);
+.app-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-@media(max-width:768px){
+/* Fallback style if icon image is missing */
+.app-icon-fallback {
+    font-size: 2rem;
+}
 
-    .hero h1{
-        font-size:4rem;
-        letter-spacing:-2px;
+.card h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+}
+
+.app-category {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 4px;
+}
+
+.card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 28px;
+    flex-grow: 1;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: white;
+    background: var(--accent-gradient);
+    transition: opacity 0.2s, transform 0.2s;
+    width: 100%;
+    text-align: center;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+.about-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 48px;
+    text-align: center;
+}
+
+.about-card p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+footer {
+    padding: 48px 20px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+}
+
+@media(max-width: 768px){
+    .hero {
+        padding: 80px 0 60px 0;
+    }
+    
+    .hero h1 {
+        font-size: 3rem;
+        letter-spacing: -1.5px;
     }
 
-    .hero p{
-        font-size:1rem;
+    .hero p {
+        font-size: 1.05rem;
     }
 
-    .about{
-        padding:30px;
+    .about-card {
+        padding: 32px 24px;
+    }
+    
+    .apps-grid {
+        grid-template-columns: 1fr;
     }
 }
 </style>
@@ -201,12 +306,22 @@ footer{
 
 <body>
 
+<header>
+    <div class="container nav-container">
+        <a href="#" class="logo">ALK <span class="gradient-text">LABS</span></a>
+        <nav class="nav-links">
+            <a href="#apps">Apps</a>
+            <a href="#about">About</a>
+        </nav>
+    </div>
+</header>
+
 <div class="container">
 
     <section class="hero">
         <div>
             <div class="hero-badge">
-                Independent Mobile App Studio
+                Independent App Developer
             </div>
 
             <h1>
@@ -214,112 +329,124 @@ footer{
             </h1>
 
             <p>
-                Crafting engaging puzzle experiences and nostalgic retro games.
-                We build simple, polished and enjoyable mobile experiences designed
-                to entertain players of all ages.
+                Creating clean, purposeful utility tools and captivating mobile games. 
+                Focusing on minimalist design, smooth performance, and experiences 
+                that make your daily routine easier or your downtime more enjoyable.
             </p>
         </div>
     </section>
 
     <section id="apps">
-
         <h2 class="section-title">Our Apps</h2>
-
         <p class="section-subtitle">
-            Discover our collection of mobile games, from clever puzzle challenges
-            to classic retro-inspired arcade experiences.
+            Explore a growing collection of lightweight mobile utilities and engaging casual games designed for iOS.
         </p>
 
         <div class="apps-grid">
 
             <div class="card">
-                <div class="card-image">🧩</div>
-
-                <div class="card-content">
-                    <h3>SumThing: Clever Sum Puzzle</h3>
-
+                <div>
+                    <div class="card-header">
+                        <div class="app-icon-wrapper">
+                            <img class="app-icon" src="placeholder-icon.png" alt="SumThing Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="app-icon-fallback" style="display:none;">🧩</div>
+                        </div>
+                        <div>
+                            <h3>SumThing: Clever Sum Puzzle</h3>
+                            <span class="app-category">Game</span>
+                        </div>
+                    </div>
                     <p>
-                        A smart and satisfying number puzzle game that challenges
-                        logic, arithmetic and creative problem-solving.
+                        A smart, elegant number puzzle game that sharpens your mind. Challenge your logic, basic arithmetic, and problem-solving skills across a variety of clean, distraction-free stages.
                     </p>
-
-                    <a class="btn"
-                       href="https://apps.apple.com/us/app/sumthing-clever-sum-puzzle/id6757385946"
-                       target="_blank">
-                        View on App Store
-                    </a>
                 </div>
+                <a class="btn" href="https://apps.apple.com/us/app/sumthing-clever-sum-puzzle/id6757385946" target="_blank">
+                    Download on App Store
+                </a>
             </div>
 
             <div class="card">
-                <div class="card-image">🏎️</div>
-
-                <div class="card-content">
-                    <h3>Retro Pixel Car Race</h3>
-
+                <div>
+                    <div class="card-header">
+                        <div class="app-icon-wrapper">
+                            <img class="app-icon" src="placeholder-icon.png" alt="Car Race Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="app-icon-fallback" style="display:none;">🏎️</div>
+                        </div>
+                        <div>
+                            <h3>Pixel Car Race</h3>
+                            <span class="app-category">Game</span>
+                        </div>
+                    </div>
                     <p>
-                        A nostalgic pixel-art racing game inspired by classic
-                        arcade experiences. Dodge traffic and chase high scores.
+                        A fast-paced, fluid 2D arcade racing game featuring crisp art style graphics. Navigate high-speed traffic lanes, react quickly to obstacles, and compete to beat your high score.
                     </p>
-
-                    <a class="btn"
-                       href="https://apps.apple.com/us/app/retro-pixel-car-race/id6749275259"
-                       target="_blank">
-                        View on App Store
-                    </a>
                 </div>
+                <a class="btn" href="https://apps.apple.com/us/app/retro-pixel-car-race/id6749275259" target="_blank">
+                    Download on App Store
+                </a>
             </div>
 
             <div class="card">
-                <div class="card-image">🐍</div>
-
-                <div class="card-content">
-                    <h3>Retro Pixel Snake</h3>
-
+                <div>
+                    <div class="card-header">
+                        <div class="app-icon-wrapper">
+                            <img class="app-icon" src="placeholder-icon.png" alt="Pixel Snake Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="app-icon-fallback" style="display:none;">🐍</div>
+                        </div>
+                        <div>
+                            <h3>Pixel Snake</h3>
+                            <span class="app-category">Game</span>
+                        </div>
+                    </div>
                     <p>
-                        A modern take on the timeless snake game with retro visuals,
-                        smooth gameplay and endless score-chasing fun.
+                        A sleek, polished interpretation of the timeless arcade classic. Features smooth touch controls, minimalist grid visuals, and endless looping fun optimized for modern mobile screens.
                     </p>
-
-                    <a class="btn"
-                       href="https://apps.apple.com/us/app/retro-pixel-snake/id6749201027"
-                       target="_blank">
-                        View on App Store
-                    </a>
                 </div>
+                <a class="btn" href="https://apps.apple.com/us/app/retro-pixel-snake/id6749201027" target="_blank">
+                    Download on App Store
+                </a>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="card-header">
+                        <div class="app-icon-wrapper">
+                            <img class="app-icon" src="placeholder-icon.png" alt="Utility App Icon" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                            <div class="app-icon-fallback" style="display:none;">⚙️</div>
+                        </div>
+                        <div>
+                            <h3>Minimalist Utility App</h3>
+                            <span class="app-category">Utility</span>
+                        </div>
+                    </div>
+                    <p>
+                        A clean, intuitive productivity companion built to simplify everyday tasks. Strip away the clutter and focus strictly on what matters with a rapid, lightweight mobile interface.
+                    </p>
+                </div>
+                <a class="btn" href="#" target="_blank" style="opacity: 0.6; pointer-events: none;">
+                    Coming Soon
+                </a>
             </div>
 
         </div>
-
     </section>
 
-    <section>
-
+    <section id="about">
         <h2 class="section-title">About ALK LABS</h2>
-
-        <div class="about">
-
+        <div class="about-card">
             <p>
-                ALK LABS is an independent mobile app studio focused on creating
-                high-quality puzzle and arcade experiences. We believe great games
-                don't need to be complicated—they should be intuitive, engaging,
-                and enjoyable from the very first tap.
-                <br><br>
-                Our mission is to blend thoughtful design, retro inspiration,
-                and modern mobile experiences into games that players can enjoy
-                anytime, anywhere.
+                ALK LABS is the independent development studio of a solo engineer dedicated to crafting streamlined software. 
+                The core philosophy here is simplicity: mobile experiences shouldn't feel crowded or overwhelming. 
+                Whether it's an accessible puzzle game or a fast utility app, every product is built from the ground up to be lightweight, easy to navigate, and instantly responsive from your very first tap.
             </p>
-
         </div>
-
     </section>
 
 </div>
 
 <footer>
-    © 2026 ALK LABS · All Rights Reserved
+    © 2026 ALK LABS · Built Independently · All Rights Reserved
 </footer>
 
 </body>
 </html>
-
